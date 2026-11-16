@@ -1,25 +1,35 @@
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 /**
- * Temporary original STARY mark: a star point inside a tilted orbit.
- * Replace with the official logo by swapping this component's SVG.
+ * Official STARY emblem (planet, orbit, satellite and star).
+ * Source artwork: public/brand/stary-logo-original.png. The cropped files in
+ * public/brand/ are generated from it.
  */
 export function LogoMark({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 40 40" fill="none" aria-hidden="true" className={cn("size-8", className)}>
-      <defs>
-        <linearGradient id="stary-mark" x1="4" y1="6" x2="36" y2="34" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#3B82F6" />
-          <stop offset="1" stopColor="#22D3EE" />
-        </linearGradient>
-      </defs>
-      <ellipse cx="20" cy="20" rx="17" ry="8" transform="rotate(-28 20 20)" stroke="url(#stary-mark)" strokeWidth="1.6" />
-      <path
-        d="M20 8.5 L22.3 17.7 L31.5 20 L22.3 22.3 L20 31.5 L17.7 22.3 L8.5 20 L17.7 17.7 Z"
-        fill="#F5F7FA"
-      />
-      <circle cx="34.4" cy="12.6" r="2" fill="#22D3EE" />
-    </svg>
+    <Image
+      src="/brand/stary-emblem.png"
+      alt=""
+      aria-hidden="true"
+      width={300}
+      height={236}
+      priority
+      className={cn("h-9 w-auto", className)}
+    />
+  );
+}
+
+/** Full logo lockup: emblem, STARY wordmark and tagline. */
+export function FullLogo({ className }: { className?: string }) {
+  return (
+    <Image
+      src="/brand/stary-logo.png"
+      alt="STARY — Space Technology and Research at York"
+      width={1200}
+      height={982}
+      className={cn("h-auto", className ?? "w-full")}
+    />
   );
 }
 

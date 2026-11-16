@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Mail, MapPin } from "lucide-react";
 import { mainNav } from "@/content/navigation";
 import { emails, siteConfig } from "@/content/site";
-import { Wordmark } from "@/components/brand/Logo";
+import { FullLogo } from "@/components/brand/Logo";
 import { SocialLinksList } from "@/components/brand/SocialIcons";
 import { Container } from "@/components/ui/Section";
 
@@ -16,8 +16,10 @@ export function Footer() {
       <Container className="py-16">
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <Wordmark />
-            <p className="mt-5 font-display text-2xl tracking-tight text-ink">{siteConfig.tagline}</p>
+            <Link href="/" aria-label="STARY home" className="inline-block">
+              <FullLogo className="w-44" />
+            </Link>
+            <p className="mt-6 font-display text-2xl tracking-tight text-ink">{siteConfig.tagline}</p>
             <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted">
               A student-led aerospace engineering organization at York University&apos;s{" "}
               {siteConfig.university.faculty}.
